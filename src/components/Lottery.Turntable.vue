@@ -17,7 +17,8 @@
 </template>
 
 <script>
-import { GLOBAL_KEYS, gifts, homeConfig } from '../gift.setting.js';
+import {gifts, GLOBAL_KEYS, homeConfig} from '../gift.setting.js';
+
 export default {
   name: 'LotteryTurntable',
   data() {
@@ -94,7 +95,8 @@ export default {
     startCallBack () {
       this.$refs.luckyGrid.play();
       let targetGiftIndex = homeConfig.targetGiftIndex;
-      if (!!targetGiftIndex === false) {
+      console.log(targetGiftIndex);
+      if (targetGiftIndex === false) {
         targetGiftIndex = Math.random() * 8 >> 0;
       }
       setTimeout(() => {

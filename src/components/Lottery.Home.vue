@@ -11,14 +11,15 @@
     </div>
     <div class="footer">
       <span>©️本活动最终解释权归</span>
-      <span> {{ owner }} </span>
+      <a href="https://me.lsming22.repl.co" target="_blank" title="主页">{{ owner }}</a>
       <span>所有</span>
     </div>
   </div>
 </template>
 
 <script>
-import { homeConfig } from '../gift.setting.js';
+import {homeConfig} from '../gift.setting.js';
+
 export default {
   name: 'LotteryHome',
   data() {
