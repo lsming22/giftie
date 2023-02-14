@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import { GLOBAL_KEYS, IS_SHOW_RESTART } from '../gift.setting.js';
+import {GLOBAL_KEYS, IS_SHOW_RESTART} from '../gift.setting.js';
+
 export default {
   name: 'Gift',
   data() {
@@ -18,6 +19,7 @@ export default {
       giftName: '',
       giftImageUrl: '',
       isShowRestart: false,
+      clickTime: 0,
     }
   },
   methods: {
@@ -27,10 +29,16 @@ export default {
       this.giftName = giftName;
       this.giftImageUrl = giftImageUrl;
       this.isShowRestart = IS_SHOW_RESTART;
+      this.clickTime = 0;
     },
     replay() {
-      localStorage.removeItem(GLOBAL_KEYS.EXIST_KEY);
-      location.replace('/');
+      if (this.clickTime > 6) {
+        localStorage.removeItem(GLOBAL_KEYS.EXIST_KEY);
+        location.replace('/');
+      } else {
+        this.clickTime = this.clickTime + 1;
+      }
+
     },
   },
   mounted() {
@@ -67,5 +75,7 @@ export default {
   position: fixed;
   bottom: 20px;
   width: 100%;
+  background-color: unset;
+  color: #fad3e6;
 }
 </style>
